@@ -3,12 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Homepage from './pages/homepage/Homepage';
 import ShopPage from './pages/shop/Shop';
+import Checkout from './pages/checkout/Checkout';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/userAction';
 import { selectCurrentUser } from './redux/user/userSelector';
 import { createStructuredSelector } from 'reselect';
 import SignInSignUpPage from './pages/signIn-signUp/SignIn-SignUp';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
+
 import './App.css';
 
 // switch is used to render only one component that matches a pattern
@@ -45,6 +47,7 @@ class App extends Component {
 				<Switch>
 					<Route exact path="/" component={Homepage} />
 					<Route exact path="/shop" component={ShopPage} />
+					<Route exact path="/checkout" component={Checkout} />
 					<Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <SignInSignUpPage />)} />
 				</Switch>
 			</div>
