@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
 * {
 	box-sizing: border-box;
 }
 
 body {
-	font-family: 'Open Sans Condensed';
+	font-family: 'Roboto Mono', monospace;
 	padding: 20px 60px;
 }
