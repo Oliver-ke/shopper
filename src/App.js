@@ -30,9 +30,10 @@ class App extends Component {
 						...snapshot.data(),
 					});
 				});
-			} else {
-				setCurrentUser(userAuth);
 			}
+			setCurrentUser(userAuth);
+			// const collectionsToAdd = collectionArray.map(({ items, title }) => ({ items, title }));
+			// addCollectionAndDocuments('collectons', collectionsToAdd);
 		});
 	}
 	componentWillUnmount() {
