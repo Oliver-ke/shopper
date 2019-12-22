@@ -7,8 +7,9 @@ export const selectCollections = createSelector([ selectShop ], (shop) => shop.c
 
 // select a perticular collection where the id is equa to the url params
 export const selectCollection = (collectionUrlParam) =>
-	createSelector([ selectCollections ], (collections) => collections[collectionUrlParam]);
+	createSelector([ selectCollections ], (collections) => (collections ? collections[collectionUrlParam] : null));
 
-export const selectCollectionForPreview = createSelector([ selectCollections ], (collections) =>
-	Object.values(collections),
+export const selectCollectionForPreview = createSelector(
+	[ selectCollections ],
+	(collections) => (collections ? Object.values(collections) : []),
 );
