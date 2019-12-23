@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Homepage from './pages/homepage/Homepage';
@@ -6,6 +6,7 @@ import ShopPage from './pages/shop/Shop';
 import Checkout from './pages/checkout/Checkout';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/user/userSelector';
+import { checkUserSession } from './redux/user/userAction';
 import { createStructuredSelector } from 'reselect';
 import SignInSignUpPage from './pages/signIn-signUp/SignIn-SignUp';
 
@@ -15,7 +16,13 @@ import './App.css';
 // it differ from a just Route because Route would render all matches
 // if placed without exact
 
-const App = ({ currentUser }) => {
+const App = ({ currentUser, checkUserSession }) => {
+	useEffect(
+		() => {
+			checkUserSession();
+		},
+		[ checkUserSession ],
+	);
 	return (
 		<div>
 			<Header />
@@ -33,4 +40,8 @@ const mapStateToProp = createStructuredSelector({
 	currentUser: selectCurrentUser,
 });
 
-export default connect(mapStateToProp)(App);
+const mapDispatchToProps = (dispatch) => ({
+	checkUserSession: () => dispatch(checkUserSession()),
+});
+
+export default connect(mapStateToProp, mapDispatchToProps)(App);
