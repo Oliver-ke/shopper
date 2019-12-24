@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import FormInput from '../form-input/FormInput';
 import CustomButton from '../custom-button/CustomButton';
+import Spinner from '../Spinner/Spinner';
 import { googleSignInStart, emailSignInStart } from '../../redux/user/userAction';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectIsSignInLoading } from '../../redux/user/userSelector';
 import './signin.scss';
 
-const SignIn = ({ googleSignInStart, emailSignInStart }) => {
+const SignIn = ({ googleSignInStart, emailSignInStart, isLoading }) => {
 	const [ password, setPassword ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const handleSubmit = (e) => {
@@ -14,6 +17,7 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
 	};
 	return (
 		<div className="sign-in">
+			{isLoading && <Spinner />}
 			<h2>I already have an account</h2>
 			<span>Signin with your email and password</span>
 			<form onSubmit={handleSubmit}>
@@ -44,8 +48,12 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
 	);
 };
 
+const mapStateToProps = createStructuredSelector({
+	isLoading: selectIsSignInLoading,
+});
+
 const mapDispatchToProps = (dispatch) => ({
 	googleSignInStart: () => dispatch(googleSignInStart()),
 	emailSignInStart: (emailAndPassword) => dispatch(emailSignInStart(emailAndPassword)),
 });
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

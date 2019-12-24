@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import FormInput from '../form-input/FormInput';
+import Spinner from '../Spinner/Spinner';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectIsSignUpLoading } from '../../redux/user/userSelector';
 import { signUpStart } from '../../redux/user/userAction';
 import CustomButton from '../custom-button/CustomButton';
 
 import './signup.scss';
 
-const SignUp = ({ signUpStart }) => {
+const SignUp = ({ signUpStart, isLoading }) => {
 	const [ formInputs, setFormInputs ] = useState({
 		displayName: '',
 		email: '',
@@ -28,6 +31,7 @@ const SignUp = ({ signUpStart }) => {
 	const { displayName, email, password, confirmPassword } = formInputs;
 	return (
 		<div className="sign-up">
+			{isLoading && <Spinner />}
 			<h2 className="title">I do not have an account</h2>
 			<span>Sign up with your email and password</span>
 			<form className="sign-up-form" onSubmit={handleSubmit}>
@@ -62,7 +66,11 @@ const SignUp = ({ signUpStart }) => {
 	);
 };
 
+const mapStateToProps = createStructuredSelector({
+	isLoading: selectIsSignUpLoading,
+});
+
 const mapDispatchToProps = (dispatch) => ({
 	signUpStart: (userDetail) => dispatch(signUpStart(userDetail)),
 });
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
