@@ -17,6 +17,18 @@ export const CollectionItemContainer = styled.div`
 			display: flex;
 		}
 	}
+	@media screen and (max-width: 800px) {
+		width: 40vw;
+		height: 250px;
+		&:hover {
+			.image {
+				opacity: unset;
+			}
+			button {
+				opacity: unset;
+			}
+		}
+	}
 `;
 
 export const CollectionItemImage = styled.div`
@@ -35,21 +47,40 @@ export const CollectionItemFooter = styled.div`
 	justify-content: space-between;
 	font-size: 18px;
 	padding: 2px 9px;
+	@media screen and (max-width: 800px) {
+		align-items: center;
+		height: 50px;
+	}
 `;
 
 export const CollectionItemButton = styled(CustomButton)`
 	width: 80%;
 	opacity: 0.7;
-	top: 255px;
+	top: 130px;
   position: absolute;
-  display: none;
+	display: none;
+	@media screen and (max-width: 800px){
+		display: block;
+		opacity: 0.9;
+		min-width: unset;
+		padding: 0 10px;
+	}
 `;
 
 export const CollectionItemName = styled.span`
 	width: 80%;
 	margin-bottom: 20px;
+	@media screen and (max-width: 800px) {
+		font-size: 14px;
+		margin-bottom: unset;
+		width: 80%;
+	}
 `;
 export const CollectionItemPrice = styled.span`
 	width: 20%;
 	font-weight: bold;
+	@media screen and (max-width: 800px) {
+		font-size: 14px;
+		width: 20%;
+	}
 `;

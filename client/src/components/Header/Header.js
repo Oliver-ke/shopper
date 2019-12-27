@@ -18,7 +18,6 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
 			<OptionsContainer>
 				<OptionLink to="/">Home</OptionLink>
 				<OptionLink to="/shop">Shop</OptionLink>
-				<OptionLink to="/contact">Contact</OptionLink>
 				{currentUser ? (
 					<Fragment>
 						<OptionDiv onClick={() => signOutStart()}>Sign Out</OptionDiv>

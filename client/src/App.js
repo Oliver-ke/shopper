@@ -10,7 +10,7 @@ import { checkUserSession } from './redux/user/userAction';
 import { createStructuredSelector } from 'reselect';
 import SignInSignUpPage from './pages/signIn-signUp/SignIn-SignUp';
 
-import './App.css';
+import { GlobalStyle } from './globalStyles';
 
 // switch is used to render only one component that matches a pattern
 // it differ from a just Route because Route would render all matches
@@ -25,6 +25,7 @@ const App = ({ currentUser, checkUserSession }) => {
 	);
 	return (
 		<div>
+			<GlobalStyle />
 			<Header />
 			<Switch>
 				<Route exact path="/" component={Homepage} />
