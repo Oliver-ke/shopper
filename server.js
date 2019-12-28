@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const stripe = require('stripe');
+const compression = require('compression');
 
 config();
 
@@ -11,6 +12,7 @@ const stripeConfiged = stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
 app.use(cors());
+app.use(compression());
 
 const PORT = process.env.PORT || 5000;
 
