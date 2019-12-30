@@ -21,3 +21,5 @@ const rootReducer = combineReducers({
 });
 
 export default persistReducer(persistConfig, rootReducer);
+
+// this is the root reducer to manage any other reducer

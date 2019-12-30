@@ -40,6 +40,25 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	return userRef;
 };
 
+// create user cart dociment
+export const updateUserCartDocument = async (userId, itemArray) => {
+	const cartRef = firestore.doc(`carts/${userId}`);
+	// const snapshot = await cartRef.get();
+	await cartRef.set({
+		items: itemArray,
+		total: 0,
+	});
+
+	return cartRef;
+};
+// get user cart items
+export const getUserCartItems = async (userId) => {
+	const itemRef = firestore.doc(`carts/${userId}`);
+	const snapshot = await itemRef.get();
+	const data = snapshot.data();
+	return data;
+};
+
 // check for authentication
 export const getCurrentUser = () => {
 	return new Promise((resolve, reject) => {

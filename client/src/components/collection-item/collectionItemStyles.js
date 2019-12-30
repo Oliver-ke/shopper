@@ -20,6 +20,7 @@ export const CollectionItemContainer = styled.div`
 	@media screen and (max-width: 800px) {
 		width: 40vw;
 		height: 250px;
+		margin-bottom: 10px;
 		&:hover {
 			.image {
 				opacity: unset;
@@ -56,12 +57,13 @@ export const CollectionItemFooter = styled.div`
 export const CollectionItemButton = styled(CustomButton)`
 	width: 80%;
 	opacity: 0.7;
-	top: 130px;
+	top: 250px;
   position: absolute;
 	display: none;
 	@media screen and (max-width: 800px){
 		display: block;
 		opacity: 0.9;
+		top: 130px;
 		min-width: unset;
 		padding: 0 10px;
 	}

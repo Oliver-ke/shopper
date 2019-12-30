@@ -18,4 +18,10 @@ export const ItemsContainer = styled.div`
 	& .collection-item {
 		margin-bottom: 30px;
 	}
+	@media screen and (max-width: 800px) {
+		display: flex;
+		width: 100vw;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
 `;

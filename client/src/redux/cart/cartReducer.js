@@ -1,4 +1,11 @@
-import { TOGGLE_CART_HIDDEN, ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM, CLEAR_CART } from './cartTypes';
+import {
+	TOGGLE_CART_HIDDEN,
+	ADD_ITEM,
+	CLEAR_ITEM_FROM_CART,
+	REMOVE_ITEM,
+	CLEAR_CART,
+	HYDRATE_CART_ITEMS,
+} from './cartTypes';
 import { addItemToCart, removeItemFromCart } from './cartUtil';
 const initialState = {
 	hidden: true,
@@ -11,6 +18,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				hidden: !state.hidden,
+			};
+		case HYDRATE_CART_ITEMS:
+			return {
+				...state,
+				cartItems: action.payload,
 			};
 		case ADD_ITEM:
 			return {
