@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CustomButton from '../custom-button/CustomButton';
 
 export const DropdownContainer = styled.div`
 	position: absolute;
@@ -25,6 +26,12 @@ export const DropdownContainer = styled.div`
 		font-size: 10px;
 	}
 `;
+
+export const CartDropdownButton = styled(CustomButton)`
+  margin-top: auto;
+`;
+
+CartDropdownButton.displayName = 'CartDropdownButton';
 
 export const CartItemContainer = styled.div`
 	height: 240px;

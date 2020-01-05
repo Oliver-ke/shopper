@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionItem component should render CollectionItem component 1`] = `ShallowWrapper {}`;
+
+exports[`CustomButton component should render CustomButton component 1`] = `ShallowWrapper {}`;

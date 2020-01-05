@@ -53,3 +53,5 @@ export const CustomButtonContainer = styled.button`
 	cursor: pointer;
 	${getButtonStyles};
 `;
+
+CustomButtonContainer.displayName = 'customButton'

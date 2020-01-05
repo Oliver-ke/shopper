@@ -69,6 +69,8 @@ export const CollectionItemButton = styled(CustomButton)`
 	}
 `;
 
+CollectionItemButton.displayName = 'collectionButton';
+
 export const CollectionItemName = styled.span`
 	width: 80%;
 	margin-bottom: 20px;

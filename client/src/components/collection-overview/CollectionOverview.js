@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import './collectionOverview.scss';
 
-const CollectionOverview = ({ collections }) => {
+export const CollectionOverview = ({ collections }) => {
 	return (
 		<div className="collection-overview">
 			{collections.map(({ id, ...rest }) => {
